@@ -1,0 +1,182 @@
+<%- include ('../partials/navbar.ejs') %>
+
+<div class="title">
+  <div>
+    <a href="/" class="text-light">Beranda</a> /
+    <a class="text-secondary">Edit Permohonan</a>
+  </div>
+  <h1 class="my-2">Edit Permohonan</h1>
+</div>
+
+<!-- ============================ form create ================================ -->
+
+<div class="container" id="demand">
+  <div class="row">
+    <form
+      action="/user/posting/edit/<%- request.id %>?_method=PUT"
+      method="POST"
+    >
+      <table class="table row">
+        <h4 class="font-weight-bold">Informasi Pasien</h4>
+        <tr class="form-group row">
+          <td class="col-sm-3 col-form-label">
+            <label class="form-label" for="name">Nama Pasien</label>
+          </td>
+          <td class="col-sm-9">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value="<%- request.name %>"
+              placeholder="Nama Lengkap"
+              class="form-control-plaintext text_field"
+              required
+            />
+          </td>
+        </tr>
+        <tr class="form-group row">
+          <td class="col-sm-3 col-form-label">
+            <label for="hospital">Rumah Sakit</label>
+          </td>
+          <td class="col-sm-9">
+            <input
+              type="text"
+              id="hospital"
+              name="hospital"
+              value="<%- request.hospital %>"
+              placeholder="Nama Rumah Sakit"
+              class="form-control-plaintext text_field"
+              required
+            />
+          </td>
+        </tr>
+        <tr class="form-group row">
+          <td class="col-sm-3 col-form-label">
+            <label for="address">Kota/Kabupaten</label>
+          </td>
+          <td class="col-sm-9">
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value="<%- request.address %>"
+              placeholder="Tulis nama Kota/Kabupaten"
+              class="form-control-plaintext text_field"
+              required
+            />
+          </td>
+        </tr>
+        <tr class="form-group row">
+          <td class="col-sm-3 col-form-label">
+            <label for="location"
+              >Tempat Donor Darah & Informasi Tambahan</label
+            >
+          </td>
+          <td class="col-sm-9">
+            <textarea
+              name="location"
+              id="location"
+              name="location"
+              cols="auto"
+              rows="auto"
+              placeholder="Tempat dilakukannya Donor Darah"
+              class="form-control-plaintext text_field"
+              required
+            >
+<%- request.location %></textarea
+            >
+          </td>
+        </tr>
+        <tr class="form-group row">
+          <td class="col-sm-3 col-form-label">
+            <label for="bloodType">Golongan Darah</label>
+          </td>
+          <td class="col-sm-9">
+            <select name="bloodType" id="bloodType" class="text_field" required>
+              <!-- masih ikut terselect kalau lupa di pilih -->
+              <option disabled selected>Pilih ABO</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="O">O</option>
+              <option value="AB">AB</option>
+            </select>
+
+            <select
+              name="bloodRhesus"
+              id="bloodRhesus"
+              class="text_field"
+              reqired
+            >
+              <option disabled>Pilih Rhesus</option>
+              <option value="positif">Positif</option>
+              <option value="negatif">Negatif</option>
+            </select>
+          </td>
+        </tr>
+        <tr class="form-group row">
+          <td class="col-sm-3 col-form-label">
+            <label for="quantity">Jumlah Pendonor</label>
+          </td>
+          <td class="col-sm-9">
+            <input type="number" name="quantity" min="1" max="100" value="1" />
+          </td>
+        </tr>
+        <tr class="form-group row">
+          <td class="col-sm-3 col-form-label">
+            <label for="bloodOrder">Jenis Donor</label>
+          </td>
+          <td class="col-sm-9">
+            <select id="bloodOrder" name="bloodOrder" required>
+              <option disabled>Pilih Jenis Donor</option>
+              <option>Whole Blood (Donor Darah Biasa)</option>
+              <option>Apheresis</option>
+              <option>Plasma Konvalesen (Penyintas Covid-19)</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <table class="table">
+        <h4>Informasi Narahubung/Contact Person</h4>
+        <tr class="form-group row">
+          <td class="col-sm-3 col-form-label">
+            <label for="rltives">Nama Lengkap</label>
+          </td>
+          <td class="col-sm-9">
+            <input
+              type="text"
+              id="rltives"
+              name="rltives"
+              value="<%- request.rltives %>"
+              placeholder="Nama Pendamping Pasien"
+              class="form-control-plaintext text_field"
+              required
+            />
+          </td>
+        </tr>
+        <tr class="form-group row">
+          <td class="col-sm-3 col-form-label">
+            <label for="number">Nomor Telepon/ WA Aktif</label>
+          </td>
+          <td class="col-sm-9">
+            <input
+              type="number"
+              id="number"
+              name="number"
+              value="<%- request.number %>"
+              placeholder="Contoh: 08XXXXXXXXXX"
+              class="form-control-plaintext text_field"
+              required
+            />
+          </td>
+        </tr>
+      </table>
+      <input
+        class="btn btn-danger"
+        type="submit"
+        placeholder="Kirim Sekarang"
+      />
+    </form>
+  </div>
+</div>
+
+<%-include('../partials/footer.ejs') %>

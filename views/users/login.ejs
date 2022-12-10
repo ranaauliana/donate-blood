@@ -1,0 +1,23 @@
+<%- include('../partials/header.ejs') %>
+<div class="register">
+  <form action="/account/login" method="post">
+    <div>
+      <h3>Masuk Sekarang</h3>
+    </div>
+    <div>
+      <input type="email" name="email" class="text_field" placeholder="Email" />
+    </div>
+    <div>
+      <input
+        type="password"
+        name="password"
+        class="text_field"
+        placeholder="Sandi"
+      />
+    </div>
+    <div>
+      <input class="btn btn-danger" type="submit" value="Masuk" />
+    </div>
+  </form>
+  <a class="btn btn-info" href="/account/register">Register</a>
+</div>

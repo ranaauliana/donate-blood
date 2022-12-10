@@ -1,0 +1,79 @@
+<%- include('../partials/navbar.ejs') %>
+<div class="container mb-4">
+  <div class="row">
+    <% for(let i=0; i < request.length;i++ ) { %>
+    <div class="col-md-auto m-4">
+      <div class="card px-4 pb-3" style="width: 450px">
+        <div class="card-body">
+          <span class="badge bg-danger"> <%- request[i].status %> </span>
+          <span class="badge bg-secondary"> <%- request[i].address %> </span>
+          <h5 class="card-title">
+            #Blood_<%- date.getDate() %><%- date.getMonth() %><%-
+            date.getFullYear() %>
+          </h5>
+        </div>
+        <table>
+          <tr>
+            <td>Nama Pasien</td>
+            <td>: <%- request[i].name %></td>
+          </tr>
+          <tr>
+            <td>Golongan Darah</td>
+            <td>
+              : <%- request[i].bloodType %> (<%- request[i].bloodRhesus %>)
+            </td>
+          </tr>
+          <tr>
+            <td>Jumlah Pendonor</td>
+            <td>: <%- request[i].quantity %></td>
+          </tr>
+          <tr>
+            <td>Jenis Donor</td>
+            <td>: <%- request[i].bloodOrder %></td>
+          </tr>
+          <tr>
+            <td>Rumah Sakit</td>
+            <td>: <%- request[i].hospital %></td>
+          </tr>
+          <tr>
+            <td>Narahubung</td>
+            <td>: <%- request[i].rltives %></td>
+          </tr>
+          <tr>
+            <td>Kontak</td>
+            <td>: <%- request[i].number %></td>
+          </tr>
+          <tr>
+            <td>Terdaftar</td>
+            <td>
+              : <%- date.getDate() %><%- date.getMonth() %><%-
+              date.getFullYear() %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <% } %>
+  </div>
+  <!-- ///pagination// -->
+  <% if (Number(totalpages) > 0){ %>
+  <div class="text center">
+    <!-- ======= previous ===== -->
+    <% if( Number(currentPage) == 0){ %> <% } else { %>
+    <span class="btn btn-danger bg-white p-2">
+      <a href="/permohonan/pasien?p=<%- Number(currentPage) - 1 %>">Previous</a>
+    </span>
+
+    <!-- ======== next ======= -->
+    <% } %> <% if((Number(currentPage)) == (Number(totalpages) - 1)){ %> <% }
+    else{ %>
+    <span class="btn btn-danger bg-white p-2"
+      ><a href="/permohonan/pasien?p=<%- Number(currentPage) + 1 %>"
+        >Next</a
+      ></span
+    >
+    <% } %>
+  </div>
+</div>
+
+<% } %> <%- include('../partials/footer.ejs') %>

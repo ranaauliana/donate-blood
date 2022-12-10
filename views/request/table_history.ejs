@@ -1,0 +1,48 @@
+<% if (requestHistory.length < 1){ %>
+<h6>Belum ada history</h6>
+<% } else { %> <% for(let i = 0; i < requestHistory.length; i++){ %>
+<div class="d-flex justify-content-between p-3">
+  <div>
+    <a href="permohonan/detail/<%- requestHistory[i]._id %>"
+      >#Donor_<%- date.getDate() %><%- date.getMonth() + 1 %><%-
+      date.getFullYear() %></a
+    >
+    <span
+      ><%- requestHistory[i].name %> - <%- requestHistory[i].address %></span
+    >
+  </div>
+  <div>
+    <!-- badge white and green -->
+
+    <span class="badge text-bg-danger"><%- requestHistory[i].status %></span>
+    <span class="badge text-bg-info"><%- requestHistory[i].quantity %></span>
+    <span class="badge text-bg-secondary">
+      <% if(requestHistory[i].bloodType === "O" && requestHistory[i].bloodRhesus
+      === "positif"){%>
+      <span>O+</span>
+      <%} else if(requestHistory[i].bloodType === "O" &&
+      requestHistory[i].bloodRhesus === "negatif"){ %>
+      <span>O-</span>
+      <%} else if(requestHistory[i].bloodType === "A" &&
+      requestHistory[i].bloodRhesus === "positif"){ %>
+      <span>A+</span>
+      <%} else if(requestHistory[i].bloodType === "A" &&
+      requestHistory[i].bloodRhesus === "negatif"){ %>
+      <span>A-</span>
+      <%} else if(requestHistory[i].bloodType === "B" &&
+      requestHistory[i].bloodRhesus === "positif"){ %>
+      <span>B+</span>
+      <% }else if(requestHistory[i].bloodType === "B" &&
+      requestHistory[i].bloodRhesus === "negatif"){ %>
+      <span>B-</span>
+      <% } else if(requestHistory[i].bloodType === "AB" &&
+      requestHistory[i].bloodRhesus === "positif"){ %>
+      <span>AB-</span>
+      <%} else if(requestHistory[i].bloodType === "O" &&
+      requestHistory[i].bloodRhesus === "negatif"){ %>
+      <span>AB-</span>
+      <% } %>
+    </span>
+  </div>
+</div>
+<% } %> <% } %>

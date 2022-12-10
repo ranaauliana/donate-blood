@@ -1,0 +1,61 @@
+<!-- =============== zero post =========== -->
+<% if (request.length < 1){ %>
+<h6>Belum ada permintaan</h6>
+<% } else { %>
+<!-- ============ end =========== -->
+<% for(let i = 0; i < request.length; i++){ %>
+<div class="d-flex justify-content-between p-3">
+  <div>
+    <a href="permohonan/detail/<%- request[i]._id %>"
+      >#Donor_<%- date.getDate() %><%- date.getMonth() + 1 %><%-
+      date.getFullYear() %></a
+    >
+    <span><%- request[i].name %> - <%- request[i].address %></span>
+  </div>
+  <div>
+    <span class="badge text-bg-danger"><%- request[i].status %></span>
+    <span class="badge text-bg-info"><%- request[i].quantity %></span>
+    <span class="badge text-bg-secondary">
+      <% if(request[i].bloodType === "O" && request[i].bloodRhesus ===
+      "positif"){%>
+      <span>O+</span>
+      <%} else if(request[i].bloodType === "O" && request[i].bloodRhesus ===
+      "negatif"){ %>
+      <span>O-</span>
+      <%} else if(request[i].bloodType === "A" && request[i].bloodRhesus ===
+      "positif"){ %>
+      <span>A+</span>
+      <%} else if(request[i].bloodType === "A" && request[i].bloodRhesus ===
+      "negatif"){ %>
+      <span>A-</span>
+      <%} else if(request[i].bloodType === "B" && request[i].bloodRhesus ===
+      "positif"){ %>
+      <span>B+</span>
+      <% }else if(request[i].bloodType === "B" && request[i].bloodRhesus ===
+      "negatif"){ %>
+      <span>B-</span>
+      <% } else if(request[i].bloodType === "AB" && request[i].bloodRhesus ===
+      "positif"){ %>
+      <span>AB-</span>
+      <%} else if(request[i].bloodType === "O" && request[i].bloodRhesus ===
+      "negatif"){ %>
+      <span>AB-</span>
+      <% } %>
+    </span>
+  </div>
+</div>
+<% }} %>
+<!-- ======= tombol 'selengkapnya' ========== -->
+<% if( request.length = 5 ){ %>
+<div style="display: absolute; bottom: 0">
+  <a class="btn btn-danger rounded-pill" href="/permohonan/pasien"
+    >Selengkapnya</a
+  >
+</div>
+<tr>
+  <td class="text-center" colspan="2"></td>
+</tr>
+<% } %>
+<!-- / isi tabel -->
+
+<!-- endtabel -->

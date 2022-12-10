@@ -1,0 +1,85 @@
+body {
+  font-family: "Quicksand", sans-serif;
+  background-color: #eef2e6;
+}
+
+/* kotak list permintaan */
+#info {
+  width: 500px;
+  margin: 15px auto;
+  background-color: #ffff;
+}
+#myTab {
+  height: 500px;
+}
+
+/* form pendaftaran */
+#demand {
+  width: 800px;
+  margin: 20px auto;
+  background-color: white;
+  padding: 25px;
+}
+.title {
+  background: #ed213a;
+  background: -webkit-linear-gradient(to right, #ed213a, #93291e);
+  background: linear-gradient(to right, #ed213a, #93291e);
+  padding: 20px 120px;
+  color: white;
+}
+
+/* scroll menu */
+.list-group {
+  max-height: 300px;
+  margin-bottom: 10px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+a {
+  color: #a70c0c;
+  text-decoration: none;
+}
+
+/* mavbar */
+#navDiv h1 {
+  padding-inline: 119px;
+  padding-block: 12px;
+}
+
+#navDiv nav {
+  padding-inline: 100px;
+  font-size: 17px;
+  font-weight: bold;
+}
+#navDiv nav:hover {
+  color: #a70c0c;
+}
+
+.text_field {
+  border: none;
+  background-color: #eef2e6;
+  line-height: 35px;
+  padding-left: 15px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.register {
+  background-color: white;
+  width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  line-height: 35px;
+}
+
+.span_style {
+  background-color: rgb(201, 194, 194);
+  border-radius: 4px;
+  padding: 5px 15px;
+  font-weight: bold;
+}
+
+.myDiv {
+  margin: auto;
+  width: 500px;
+}

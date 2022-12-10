@@ -1,0 +1,171 @@
+<%- include('../partials/navbar.ejs') %>
+<!-- ========== zero post ============== -->
+<% if(request.length == 0 ){ %>
+<div class="title" style="margin-bottom: 300px">
+  <h3>Anda belum memiliki postingan apapun</h3>
+</div>
+<% } else {%>
+<!-- =============////================== -->
+<!-- ==alert msg== -->
+<%- include('../partials/alert.ejs') %>
+<!-- ===== // ====  -->
+
+<div class="container justify-content-center mb-4">
+  <div class="row">
+    <% for(let i=0; i < request.length; i++ ) { %>
+    <div class="col-md-auto">
+      <div
+        class="card mt-5 fs-14"
+        style="width: 340px; height: 500px; font-size: 14px"
+      >
+        <div class="card-body">
+          <!-- ====================== LOGIC BUTTON ======================== -->
+          <% if( request[i].status === "GREEN"){ %>
+          <span class="badge text-bg-success p-2"
+            ><%- request[i].status %></span
+          >
+          <%} else if(request[i].status === "WHITE"){%>
+          <span
+            class="badge text-bg-white text-dark border border-secondary p-2"
+            ><%- request[i].status %></span
+          >
+          <% } else { %>
+          <span class="badge text-bg-danger p-2"><%- request[i].status %></span
+          ><% } %>
+          <!-- ===================== END LOGIC BUTTON ======================= -->
+          <span class="badge text-bg-secondary p-2"
+            ><%- request[i].address %></span
+          >
+          <h5 class="card-title mt-3 text-danger">
+            #Donor_<%- date.getDate() %><%- date.getMonth() + 1 %><%-
+            date.getFullYear() %>
+          </h5>
+          <table>
+            <tr>
+              <td>Nama Pasien</td>
+              <td>: <%- request[i].name %></td>
+            </tr>
+            <tr>
+              <td>Golongan Darah</td>
+              <td>
+                : <%- request[i].bloodType %> ( <%- request[i].bloodRhesus %> )
+              </td>
+            </tr>
+            <tr>
+              <td>Jumlah Pendonor</td>
+              <td>: <%- request[i].quantity %></td>
+            </tr>
+            <tr>
+              <td>Jenis Donor</td>
+              <td>: <%- request[i].bloodOrder %></td>
+            </tr>
+            <tr>
+              <td>Narahubung</td>
+              <td>: <%- request[i].rltives %></td>
+            </tr>
+            <tr>
+              <td>Rumah Sakit</td>
+              <td>: <%- request[i].hospital %></td>
+            </tr>
+            <tr>
+              <td>Kontak</td>
+              <td>: <%- request[i].number %></td>
+            </tr>
+            <!-- ============ update date ============ -->
+            <tr>
+              <% if (request[i].status !== "URGENT") { %>
+              <td>Status Selesai</td>
+              <td>
+                : <%- update.getDate() %> - <%- update.getMonth() + 1 %> - <%-
+                update.getFullYear() %>
+              </td>
+              <% } else { %>
+              <td>Terdaftar</td>
+              <td>
+                : <%- date.getDate() %> - <%- date.getMonth() + 1 %> - <%-
+                date.getFullYear() %>
+              </td>
+              <% } %>
+            </tr>
+            <!-- ================= end update date ================== -->
+            <tr>
+              <% if(request[i].status === "URGENT"){ %>
+              <td>
+                <a
+                  class="badge bg-primary px-3 py-2"
+                  href="/user/posting/<%- request[i].id %>"
+                  >Edit</a
+                >
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">Update keadaan Pasien</td>
+              <td></td>
+            </tr>
+            <tr>
+              <!-- ======== button green =========== -->
+              <td>
+                <form
+                  action="/status/green/<%- request[i].id %>?_method=PUT"
+                  method="POST"
+                >
+                  <input
+                    class="btn btn-success btn-sm"
+                    type="submit"
+                    value="Selesai"
+                    onclick="return confirm('Are you sure you want to update this status?')"
+                  />
+                </form>
+              </td>
+              <td><label for="">Pasien Sudah Tertolong</label></td>
+            </tr>
+            <tr>
+              <!-- =============== button white ================ -->
+              <td>
+                <form
+                  action="/status/white/<%- request[i]._id %>?_method=PUT"
+                  method="POST"
+                >
+                  <input
+                    class="btn btn-secondary btn-sm"
+                    type="submit"
+                    value="Selesai"
+                    onclick="return confirm('Are you sure you want to update this status?')"
+                  />
+                </form>
+              </td>
+              <td><label for="">Pasien Telah Meninggal Dunia</label></td>
+            </tr>
+            <% } %>
+          </table>
+        </div>
+        <% if(request[i].status === "GREEN" || request[i].status === "WHITE"){%>
+        <span class="bg-secondary text-center p-3 text-white"
+          ><i>Doa terbaik untuk Pasien</i></span
+        >
+        <% } %>
+      </div>
+    </div>
+    <% } %>
+  </div>
+  <!-- ====== pagination ==== -->
+  <div class="text center">
+    <!-- ======= previous ===== -->
+    <% if( Number(currentPage) == 0){ %> <% } else { %>
+    <span class="btn btn-danger bg-white p-2 mt-3">
+      <a href="/permohonan/posting?p=<%- Number(currentPage) - 1 %>"
+        >Previous</a
+      >
+    </span>
+    <!-- ======= next ====== -->
+    <% } %> <% if((Number(currentPage)) == (Number(totalpages) - 1)){ %> <% }
+    else{ %>
+    <span class="btn btn-danger bg-white p-2 mt-3"
+      ><a href="/permohonan/posting?p=<%- Number(currentPage) + 1 %>"
+        >Next</a
+      ></span
+    >
+    <% } %>
+  </div>
+</div>
+<% } %> <%- include('../partials/footer.ejs') %>

@@ -1,0 +1,23 @@
+<% if (request.status === "GREEN"){ %>
+<div class="text-center">
+  <h6>
+    <i
+      >Kebutunan telah terpenuhi
+      <br />
+      Doa terbaik untuk Pasien</i
+    >
+  </h6>
+</div>
+
+<% }else if(request.status === "WHITE"){ %>
+<div class="text-center">
+  <h6>
+    <i
+      >Pasien telah meninggal dunia
+      <br />
+      Mohon doa terbaik untuk pasien</i
+    >
+  </h6>
+</div>
+
+<% } %>

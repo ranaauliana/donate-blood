@@ -1,0 +1,54 @@
+<%- include ('./partials/navbar.ejs') %>
+
+<div class="row justify-content-center mt-5">
+  <div class="col-md-5 text-center mb-3 mb-md-0">
+    <h4 class="call-to-wrap text-danger">Anda membutuhkan darah?</h4>
+    <h5 class="text-danger mt-2">Silahkan kirim informasi kebutuhan di sini</h5>
+  </div>
+
+  <div class="col-md-1 align-self-center text-center text-md-left">
+    <a
+      href="/permohonan"
+      class="btn btn-sm btn--round btn-danger calto-action-btn mt-0 rounded-pill p-3"
+      >Pendaftaran</a
+    >
+  </div>
+</div>
+
+<!-- ================================== Quotes ======================================= -->
+<div class="title mt-5 text-center">
+  "Darah yang Anda sumbangkan memberi seseorang kesempatan hidup lagi. Suatu
+  hari, seseorang itu mungkin kerabat dekat, teman, orang yang dicintai - atau
+  bahkan Anda." - redcrossblood.org
+</div>
+<!-- =============================== END QUOTES ====================================== -->
+
+<div class="text-center mt-5 text-danger"><h4>Permintaan Donor Darah</h4></div>
+
+<!-- ======================================== nav blood list ================================== -->
+<!-- Tabs navs -->
+
+<div
+  class="container text-center my-4 border"
+  style="height: 400px; width: 600px"
+>
+  <ul class="nav nav-tabs nav-fill">
+    <li class="nav-item">
+      <a href="#home" class="nav-link active" data-bs-toggle="tab">Kebutuhan</a>
+    </li>
+    <li class="nav-item">
+      <a href="#profile" class="nav-link" data-bs-toggle="tab">History</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="home">
+      <p><%- include ('./request/table.ejs') %></p>
+    </div>
+    <div class="tab-pane fade" id="profile">
+      <p><%- include ('./request/table_history.ejs') %></p>
+    </div>
+  </div>
+</div>
+<!-- ================================== End Tabs content ========================================-->
+
+<%- include ('./partials/footer.ejs')%>

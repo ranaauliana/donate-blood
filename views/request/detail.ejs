@@ -1,0 +1,68 @@
+<%- include('../partials/navbar.ejs') %>
+
+<div class="card mt-5 myDiv" style="width: 30rem; margin-bottom: 50px;">
+  <div class="card-body">
+    <span class="badge bg-danger p-2"><%- request.status %></span>
+    <span class="badge bg-secondary p-2"><%- request.address %></span>
+    <h5 class="card-title mt-2">
+      #Donor_<%- date.getDate() %><%- date.getMonth() + 1 %><%-
+      date.getFullYear() %>
+    </h5>
+    <%- include('../partials/message.ejs') %>
+    <table>
+      <tr>
+        <td>Nama Pasien</td>
+        <td>: <%- request.name %></td>
+      </tr>
+      <tr>
+        <td>Golongan Darah</td>
+        <td>: <%- request.bloodType %> ( <%- request.bloodRhesus %> )</td>
+      </tr>
+      <tr>
+        <td>Jumlah Pendonor</td>
+        <td>: <%- request.quantity %></td>
+      </tr>
+      <tr>
+        <td>Jenis Donor</td>
+        <td>: <%- request.bloodOrder %></td>
+      </tr>
+      <tr>
+        <td>Narahubung</td>
+        <td>: <%- request.rltives %></td>
+      </tr>
+      <tr>
+        <td>Rumah Sakit</td>
+        <td>: <%- request.hospital %></td>
+      </tr>
+      <tr>
+        <td>Kontak</td>
+        <td>: <%- request.number %></td>
+      </tr>
+      <tr>
+        <td>Terdaftar</td>
+        <td>
+          : <%- date.getDate() %>-<%- date.getMonth() + 1 %>-<%-
+          date.getFullYear() %>
+        </td>
+      </tr>
+      <!-- =========================== updated date  ========================================= -->
+      <% if(request.status === "GREEN"){%>
+        <td class=" badge bg-success">#GREEN</td>
+        <td>
+          : <%- update.getDate() %> - <%- update.getMonth() + 1 %> - <%-
+          update.getFullYear() %>
+        </td>
+        <%} else if (request.status === "WHITE"){ %>
+        <td class="badge bg-white border border-secondary text-dark">
+          #WHITE
+          </td>
+          <td>
+          : <%- update.getDate() %> - <%- update.getMonth() + 1 %> - <%-
+          update.getFullYear() %>
+        </td>
+        <% } %>
+      </tr>
+    </table>
+  </div>
+</div>
+<%- include('../partials/footer.ejs') %>
