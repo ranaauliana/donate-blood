@@ -23,7 +23,6 @@ module.exports = {
           $limit: 5,
         },
       ]);
-      // search
 
       let date;
 

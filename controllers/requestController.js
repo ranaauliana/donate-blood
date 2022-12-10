@@ -90,7 +90,7 @@ module.exports = {
 
       let date = request[0].createdAt;
 
-      // count for paginate
+      // count paginate
       const count = await Request.find({ status: "URGENT" }).count();
       console.log(count);
 
@@ -129,7 +129,7 @@ module.exports = {
         update = request[0].updatedAt;
       }
 
-      // count for paginate
+      // count paginate
       const count = await Request.find({ userID: req.session.user.id }).count();
 
       res.render("request/post", {
