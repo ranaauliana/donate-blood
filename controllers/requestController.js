@@ -239,4 +239,21 @@ module.exports = {
       res.redirect("/permohonan/posting");
     }
   },
+  viewProfil: async (req, res) => {
+    try {
+      res.render("request/profil", { session: req.session.user });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  actionDelete: async (req, res) => {
+    try {
+      const { id } = req.params;
+
+      await Request.findByIdAndRemove({ _id: id });
+      res.redirect("/permohonan/posting");
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };

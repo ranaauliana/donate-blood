@@ -16,12 +16,14 @@ router.get("/permohonan/detail/:id", requestRouter.viewDetail);
 router.get("/permohonan/pasien", requestRouter.viewAll);
 router.get("/permohonan/posting", auth, requestRouter.viewPost);
 router.get("/user/posting/:id", auth, requestRouter.viewEdit);
+router.get("/profil", requestRouter.viewProfil);
 
 router.put("/status/green/:id", auth, requestRouter.statusGreen);
 router.put("/status/white/:id", auth, requestRouter.statusWhite);
 router.put("/user/posting/edit/:id", auth, requestRouter.actionEdit);
 
 router.post("/permohonan/create", auth, requestRouter.actionCreate);
+router.delete("/posting/delete/:id", auth, requestRouter.actionDelete);
 
 // user
 router.get("/account/login", userRouter.viewLogin);
