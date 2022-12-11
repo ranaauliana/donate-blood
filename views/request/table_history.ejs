@@ -13,8 +13,12 @@
   </div>
   <div>
     <!-- badge white and green -->
-
-    <span class="badge text-bg-danger"><%- requestHistory[i].status %></span>
+    <% if (requestHistory[i].status === "GREEN"){ %>
+    <span class="badge text-bg-success"><%- requestHistory[i].status %></span>
+    <% } else { %>
+    <span class="badge text-bg-white"><%- requestHistory[i].status %></span>
+    <% } %>
+    <!-- ------------------ -->
     <span class="badge text-bg-info"><%- requestHistory[i].quantity %></span>
     <span class="badge text-bg-secondary">
       <% if(requestHistory[i].bloodType === "O" && requestHistory[i].bloodRhesus
