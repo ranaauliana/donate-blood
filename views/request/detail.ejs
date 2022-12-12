@@ -5,14 +5,14 @@
     <!-- badge status -->
     <% if (request.status === "GREEN"){ %>
       <span class="badge text-bg-success p-2"><%- request.status %></span>
-      <% } else if (request.status === "GREEN") { %>
-      <span class="badge text-bg-white p-2"><%- request.status %></span>
+      <% } else if (request.status === "WHITE") { %>
+      <span class="badge bg-white text-dark border border-secondary p-2"><%- request.status %></span>
       <% } else {%>
         <span class="badge text-bg-danger p-2"><%- request.status %></span>
         <% } %>
       <!-- ------------------ -->
     <span class="badge bg-secondary p-2"><%- request.address %></span>
-    <h5 class="card-title mt-2">
+    <h5 class="card-title mt-2 text-danger">
       #Donor_<%- date.getDate() %><%- date.getMonth() + 1 %><%-
       date.getFullYear() %>
     </h5>

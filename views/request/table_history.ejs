@@ -16,7 +16,9 @@
     <% if (requestHistory[i].status === "GREEN"){ %>
     <span class="badge text-bg-success"><%- requestHistory[i].status %></span>
     <% } else { %>
-    <span class="badge text-bg-white"><%- requestHistory[i].status %></span>
+    <span class="badge bg-white text-dark"
+      ><%- requestHistory[i].status %></span
+    >
     <% } %>
     <!-- ------------------ -->
     <span class="badge text-bg-info"><%- requestHistory[i].quantity %></span>
